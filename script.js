@@ -1,13 +1,13 @@
-function mincost(arr) {
-    // Min-heap implementation using a priority queue
-    const MinHeap = require('collections/heap');
+const { MinHeap } = require('heap-js');
 
+function mincost(arr) {
     // Create a min-heap with the given array elements
-    let heap = new MinHeap(arr, null, (a, b) => b - a);
+    let heap = new MinHeap();
+    heap.init(arr);
     
     let totalCost = 0;
 
-    while (heap.length > 1) {
+    while (heap.size() > 1) {
         // Extract the two smallest ropes
         let first = heap.pop();
         let second = heap.pop();
